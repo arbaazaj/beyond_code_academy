@@ -1,0 +1,2942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Code Academy — Software Development Courses in Jaunpur</title>
+  <meta name="description" content="Beyond Code Academy by Arbaaz Shah. Practical offline courses in Web Development and Mobile App Development in Jaunpur, plus programming tutorials on YouTube and Facebook.">
+  <link rel="canonical" href="https://beyondcodeacademy.in/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-paper: #F8F9FB;
+      --bg-white: #FFFFFF;
+      --bg-navy: #0A192F;
+      --bg-navy-deep: #0A1B36;
+      --bg-navy-card: #112240;
+      --brand-plum: #5B2172;
+      --brand-gold: #F2BE42;
+      --brand-gold-dark: #B47B09;
+      --brand-cyan: #0EA5E9;
+      --ink-primary: #0F172A;
+      --ink-secondary: #475569;
+      --ink-muted: #64748B;
+      --border-light: #E2E8F0;
+      --border-strong: #CBD5E1;
+      --border-dark: rgba(255, 255, 255, 0.11);
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --container-max: 1180px;
+      --nav-height: 72px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 20px);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-paper);
+      color: var(--ink-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-inline: 2rem;
+      }
+    }
+
+    .brand-bar {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--bg-navy-deep) 0%, var(--brand-plum) 55%, var(--brand-gold) 100%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(248, 249, 251, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-inner {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .brand-emblem {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.0625rem;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.28rem;
+    }
+
+    .brand-wordmark .beyond {
+      color: var(--bg-navy-deep);
+    }
+
+    .brand-wordmark .academy {
+      color: var(--brand-plum);
+      font-weight: 700;
+    }
+
+    .brand-lockup-dark .brand-wordmark .beyond {
+      color: var(--brand-gold);
+    }
+
+    .brand-lockup-dark .brand-wordmark .academy {
+      color: #FFFFFF;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.35rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      border-radius: var(--radius-sm);
+      transition: color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink-primary);
+      background-color: #EEF2F6;
+      outline: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1;
+      padding: 0.78rem 1.25rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--brand-cyan);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background-color: var(--bg-navy-deep);
+      color: #FFFFFF;
+      border-color: var(--bg-navy-deep);
+    }
+
+    .btn-primary:hover {
+      background-color: #132C54;
+      border-color: #132C54;
+    }
+
+    .btn-gold {
+      background-color: var(--brand-gold);
+      color: var(--bg-navy-deep);
+      border-color: var(--brand-gold);
+    }
+
+    .btn-gold:hover {
+      background-color: #E5AE2B;
+      border-color: #E5AE2B;
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-white);
+      color: var(--ink-primary);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: #F1F5F9;
+      border-color: #94A3B8;
+    }
+
+    .btn-ghost-dark {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: #F8FAFC;
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .btn-ghost-dark:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .nav-cta-desktop {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-white);
+      color: var(--ink-primary);
+      cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+      background-color: #F1F5F9;
+    }
+
+    .mobile-drawer {
+      display: none;
+      border-top: 1px solid var(--border-light);
+      background-color: var(--bg-white);
+      padding: 1rem 1.25rem 1.5rem;
+    }
+
+    .mobile-drawer.is-open {
+      display: block;
+    }
+
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-drawer-links a {
+      display: block;
+      padding: 0.75rem 0.75rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink-primary);
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-drawer-links a:hover {
+      background-color: var(--bg-paper);
+    }
+
+    .mobile-drawer .btn {
+      width: 100%;
+    }
+
+    @media (min-width: 860px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-cta-desktop {
+        display: inline-flex;
+      }
+
+      .menu-toggle,
+      .mobile-drawer,
+      .mobile-drawer.is-open {
+        display: none;
+      }
+    }
+
+    .hero {
+      position: relative;
+      padding: 3.5rem 0 4rem;
+      border-bottom: 1px solid var(--border-light);
+      background-image:
+        linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+      background-size: 48px 48px;
+      background-position: top center;
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding: 5.25rem 0 5.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--bg-navy-deep);
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      padding: 0.42rem 0.78rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--brand-cyan);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.15rem, 4.4vw, 3.45rem);
+      font-weight: 800;
+      line-height: 1.09;
+      letter-spacing: -0.035em;
+      color: var(--ink-primary);
+      margin-bottom: 1.35rem;
+      max-width: 17ch;
+    }
+
+    .hero-title span {
+      color: var(--bg-navy-deep);
+      text-decoration: underline;
+      text-decoration-color: var(--brand-gold);
+      text-decoration-thickness: 4px;
+      text-underline-offset: 6px;
+    }
+
+    .hero-lead {
+      font-size: 1.0625rem;
+      color: var(--ink-secondary);
+      max-width: 54ch;
+      margin-bottom: 2rem;
+      line-height: 1.68;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      max-width: 520px;
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-meta-item span {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .roadmap-card {
+      background-color: var(--bg-navy);
+      color: #E2E8F0;
+      border: 1px solid #1E293B;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 44px -24px rgba(10, 25, 47, 0.45);
+    }
+
+    .roadmap-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1.15rem;
+      background-color: #071326;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .window-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .window-controls span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: #334155;
+    }
+
+    .window-controls span:first-child {
+      background-color: var(--brand-gold);
+    }
+
+    .window-controls span:nth-child(2) {
+      background-color: var(--brand-cyan);
+    }
+
+    .window-controls span:nth-child(3) {
+      background-color: var(--brand-plum);
+    }
+
+    .roadmap-status {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #CBD5E1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #22C55E;
+    }
+
+    .roadmap-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border-dark);
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .roadmap-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #94A3B8;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .roadmap-tab:first-child {
+      border-right: 1px solid var(--border-dark);
+    }
+
+    .roadmap-tab:hover {
+      color: #F8FAFC;
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .roadmap-tab.is-active {
+      color: #FFFFFF;
+      background-color: rgba(14, 165, 233, 0.08);
+      border-bottom-color: var(--brand-gold);
+    }
+
+    .roadmap-body {
+      padding: 1.35rem 1.25rem;
+    }
+
+    .roadmap-panel {
+      display: none;
+    }
+
+    .roadmap-panel.is-active {
+      display: block;
+    }
+
+    .roadmap-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .roadmap-track-title {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.25rem;
+    }
+
+    .roadmap-track-sub {
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    .roadmap-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--brand-gold);
+      background-color: rgba(242, 190, 66, 0.12);
+      border: 1px solid rgba(242, 190, 66, 0.3);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .code-spec {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.75;
+      background-color: #071326;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 0.95rem 1rem;
+      margin-bottom: 1.15rem;
+      overflow-x: auto;
+    }
+
+    .code-line {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .code-ln {
+      color: #475569;
+      user-select: none;
+      width: 1.1rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .code-key {
+      color: #38BDF8;
+    }
+
+    .code-str {
+      color: #F2BE42;
+    }
+
+    .code-val {
+      color: #E2E8F0;
+    }
+
+    .roadmap-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .roadmap-batch-info {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #94A3B8;
+    }
+
+    .roadmap-jump {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--brand-gold);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0;
+    }
+
+    .roadmap-jump:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    @media (min-width: 960px) {
+      .section {
+        padding: 6rem 0;
+      }
+    }
+
+    .section-bordered {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-dark {
+      background-color: var(--bg-navy);
+      color: #F8FAFC;
+      border-top: 1px solid #1E293B;
+      border-bottom: 1px solid #1E293B;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-plum);
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+
+    .section-dark .section-label {
+      color: var(--brand-gold);
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--ink-primary);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-dark .section-heading {
+      color: #FFFFFF;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      color: var(--ink-secondary);
+      max-width: 60ch;
+      line-height: 1.65;
+    }
+
+    .section-dark .section-intro {
+      color: #94A3B8;
+    }
+
+    .curriculum-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      margin-bottom: 2.25rem;
+    }
+
+    @media (min-width: 900px) {
+      .curriculum-top {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .course-tabs {
+      display: inline-flex;
+      background-color: #EEF2F6;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      gap: 4px;
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .course-tabs {
+        width: auto;
+      }
+    }
+
+    .course-tab-btn {
+      flex: 1;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink-secondary);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.72rem 1.15rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .course-tab-btn {
+        flex: initial;
+      }
+    }
+
+    .course-tab-btn:hover {
+      color: var(--ink-primary);
+    }
+
+    .course-tab-btn[aria-selected="true"] {
+      background-color: var(--bg-white);
+      color: var(--bg-navy-deep);
+      border-color: var(--border-light);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+    }
+
+    .curriculum-panel {
+      display: none;
+    }
+
+    .curriculum-panel.is-active {
+      display: block;
+    }
+
+    .curriculum-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (min-width: 960px) {
+      .curriculum-layout {
+        grid-template-columns: 340px 1fr;
+        gap: 2.25rem;
+      }
+    }
+
+    .track-summary-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 960px) {
+      .track-summary-card {
+        position: sticky;
+        top: calc(var(--nav-height) + 24px);
+      }
+    }
+
+    .track-summary-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--bg-navy-deep), var(--brand-plum));
+    }
+
+    .track-summary-accent-mobile {
+      background: linear-gradient(90deg, var(--brand-cyan), var(--brand-plum));
+    }
+
+    .track-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--bg-navy-deep);
+      background-color: #FEF3C7;
+      border: 1px solid #FDE68A;
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .track-summary-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink-primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .track-summary-card p {
+      font-size: 0.92rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.35rem;
+    }
+
+    .track-specs {
+      list-style: none;
+      border-top: 1px solid var(--border-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .track-specs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.72rem 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.85rem;
+    }
+
+    .track-specs .spec-k {
+      color: var(--ink-muted);
+    }
+
+    .track-specs .spec-v {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      text-align: right;
+    }
+
+    .track-summary-card .btn {
+      width: 100%;
+    }
+
+    .accordion-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .accordion-count {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .expand-all-btn {
+      background: transparent;
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--bg-navy-deep);
+      cursor: pointer;
+      padding: 0.35rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .expand-all-btn:hover {
+      background-color: #E2E8F0;
+    }
+
+    .accordion-list {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 1.15rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.16s ease;
+    }
+
+    .accordion-trigger:hover {
+      background-color: #F8FAFC;
+    }
+
+    .accordion-trigger:focus-visible {
+      outline: 2px solid var(--brand-cyan);
+      outline-offset: -2px;
+    }
+
+    .accordion-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .module-index {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--brand-plum);
+      background-color: #F5F3FF;
+      border: 1px solid #E9D5FF;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .module-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .accordion-chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      transition: transform 0.22s ease, color 0.18s ease;
+    }
+
+    .accordion-item.is-open .accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--bg-navy-deep);
+    }
+
+    .accordion-content-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.24s ease;
+    }
+
+    .accordion-item.is-open .accordion-content-wrap {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-content {
+      overflow: hidden;
+    }
+
+    .topic-list {
+      list-style: none;
+      padding: 0.2rem 1.35rem 1.35rem 1.35rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      border-top: 1px dashed var(--border-light);
+      padding-top: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .topic-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem 1.25rem;
+      }
+    }
+
+    .topic-list li {
+      position: relative;
+      padding-left: 1.05rem;
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    .topic-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.56rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 1px;
+      background-color: var(--brand-cyan);
+    }
+
+    .topic-list strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    .content-header-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 860px) {
+      .content-header-grid {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-dark);
+      padding: 0.52rem 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .social-pill:hover {
+      background-color: rgba(255, 255, 255, 0.11);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .platforms-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .platform-card {
+      background-color: var(--bg-navy-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .platform-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .platform-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-dark);
+      background-color: rgba(255, 255, 255, 0.04);
+      flex-shrink: 0;
+    }
+
+    .platform-handle {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #94A3B8;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-dark);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .platform-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .platform-card p {
+      font-size: 0.94rem;
+      color: #94A3B8;
+      line-height: 1.62;
+    }
+
+    .platform-points {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .platform-points li {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #CBD5E1;
+      background-color: rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(14, 165, 233, 0.22);
+      padding: 0.28rem 0.58rem;
+      border-radius: 4px;
+    }
+
+    .guides-subheader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .guides-subheader h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .guides-all-link {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--brand-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .guides-all-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .guides-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .guides-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .guide-card {
+      background-color: #0D1F3C;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .guide-card:hover {
+      border-color: rgba(242, 190, 66, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .guide-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background-color: #071326;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .guide-thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .guide-thumb-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .guide-format-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #E2E8F0;
+      background-color: rgba(10, 25, 47, 0.85);
+      border: 1px solid var(--border-dark);
+      padding: 0.22rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .guide-play-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(242, 190, 66, 0.14);
+      border: 1px solid rgba(242, 190, 66, 0.4);
+      color: var(--brand-gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .guide-thumb-code {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #94A3B8;
+    }
+
+    .guide-thumb-code strong {
+      color: #38BDF8;
+      font-weight: 500;
+    }
+
+    .guide-body {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .guide-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--brand-gold);
+    }
+
+    .guide-body h4 {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+    }
+
+    .guide-body p {
+      font-size: 0.86rem;
+      color: #94A3B8;
+      line-height: 1.55;
+      margin-top: auto;
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .instructor-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 3.5rem;
+      }
+    }
+
+    .portrait-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem;
+    }
+
+    .portrait-frame {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      border-radius: var(--radius-md);
+      background: linear-gradient(155deg, var(--bg-navy-deep) 0%, #17274D 62%, #3D1A54 100%);
+      border: 1px solid #1E293B;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .portrait-frame-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .portrait-monogram {
+      position: relative;
+      z-index: 1;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-gold);
+      background-color: rgba(10, 25, 47, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    }
+
+    .portrait-monogram span {
+      color: var(--brand-gold);
+    }
+
+    .portrait-caption {
+      position: relative;
+      z-index: 1;
+      margin-top: 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #CBD5E1;
+      letter-spacing: 0.04em;
+    }
+
+    .portrait-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 0.2rem;
+    }
+
+    .portrait-meta strong {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      display: block;
+    }
+
+    .portrait-meta span {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+    }
+
+    .exp-pill {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--bg-navy-deep);
+      background-color: #FEF3C7;
+      border: 1px solid #FDE68A;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .instructor-bio {
+      font-size: 1.02rem;
+      color: var(--ink-secondary);
+      line-height: 1.72;
+      margin-bottom: 1.75rem;
+      max-width: 62ch;
+    }
+
+    .instructor-bio strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    .stack-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .mono-subheading {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-muted);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .stack-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--bg-navy-deep);
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      padding: 0.42rem 0.78rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .languages-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 1.25rem;
+      padding: 1rem 1.2rem;
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      max-width: 520px;
+    }
+
+    .languages-bar .lang-label {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .languages-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .lang-chip {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      padding: 0.22rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    @media (min-width: 920px) {
+      .contact-grid {
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 3rem;
+      }
+    }
+
+    .contact-details-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 1.75rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-row-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-row-value {
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: var(--ink-primary);
+      word-break: break-word;
+    }
+
+    .contact-row-value a:hover {
+      color: var(--brand-plum);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-row-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .mini-action-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .mini-action-btn:hover {
+      background-color: #E2E8F0;
+      color: var(--ink-primary);
+      border-color: var(--border-strong);
+    }
+
+    .form-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-card {
+        padding: 2.1rem;
+      }
+    }
+
+    .form-card-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.15rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .form-card-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .form-card-header p {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+
+    @media (min-width: 600px) {
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.42rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.72rem 0.88rem;
+      font-size: 0.92rem;
+      color: var(--ink-primary);
+      transition: border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      background-color: var(--bg-white);
+      border-color: var(--bg-navy-deep);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+    }
+
+    .field textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    .field-error {
+      display: none;
+      font-size: 0.78rem;
+      color: #B91C1C;
+      margin-top: 0.35rem;
+    }
+
+    .field.has-error input,
+    .field.has-error select,
+    .field.has-error textarea {
+      border-color: #DC2626;
+    }
+
+    .field.has-error .field-error {
+      display: block;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .form-actions .btn-primary {
+      flex: 1 1 220px;
+    }
+
+    .form-actions .btn-secondary {
+      flex: 1 1 160px;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 1.15rem;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-sm);
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .form-feedback.is-visible {
+      display: block;
+    }
+
+    .form-feedback a {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .site-footer {
+      background-color: var(--bg-navy-deep);
+      color: #CBD5E1;
+      padding: 3.25rem 0 2.5rem;
+      border-top: 1px solid #1E293B;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 2.25rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    @media (min-width: 820px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-brand-note {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      margin-top: 0.6rem;
+      max-width: 38ch;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      font-size: 0.88rem;
+      color: #CBD5E1;
+      transition: color 0.16s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--brand-gold);
+    }
+
+    .footer-bottom {
+      padding-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: #94A3B8;
+    }
+
+    @media (min-width: 720px) {
+      .footer-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .footer-socials a {
+      color: #CBD5E1;
+    }
+
+    .footer-socials a:hover {
+      color: var(--brand-gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="brand-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#top" class="brand-lockup" aria-label="Beyond Code Academy Home">
+          <svg class="brand-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Beyond Code Academy Emblem">
+            <defs>
+              <linearGradient id="bcaHexFillHeader" x1="6" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0A1B36"/>
+                <stop offset="55%" stop-color="#1E295E"/>
+                <stop offset="100%" stop-color="#5B2172"/>
+              </linearGradient>
+            </defs>
+            <polygon points="32,3 57,17.5 57,46.5 32,61 7,46.5 7,17.5" fill="url(#bcaHexFillHeader)" stroke="#F2BE42" stroke-width="2.6" stroke-linejoin="round"/>
+            <polygon points="32,12 49,22 49,42 32,52 15,42 15,22" fill="none" stroke="#0EA5E9" stroke-width="1.6" stroke-opacity="0.9" stroke-linejoin="round"/>
+            <path d="M35.5 20.5C29.5 23.8 25.5 29.8 24.5 37C29.8 34.4 34.8 29.4 37.5 22.8L35.5 20.5Z" fill="#38BDF8"/>
+            <path d="M24.2 37.5C23.5 33.4 25.4 29.6 29.4 28.4C31.5 27.8 33.4 28.5 34.3 30.1C30.4 31.1 27.4 34.2 26.2 38.4L24.2 37.5Z" fill="#F2BE42"/>
+            <circle cx="33.5" cy="36.2" r="2.7" fill="#F2BE42"/>
+            <path d="M29.2 40.5C31.2 43.2 35.8 43.5 39.2 40.2" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-wordmark">
+            <span class="beyond">Beyond Code</span>
+            <span class="academy">Academy</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#instructor">Instructor</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#contact" class="btn btn-primary nav-cta-desktop">Join Offline Batch</a>
+          <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-drawer-links">
+        <li><a href="#courses" class="drawer-link">Courses</a></li>
+        <li><a href="#content" class="drawer-link">Content</a></li>
+        <li><a href="#instructor" class="drawer-link">Instructor</a></li>
+        <li><a href="#contact" class="drawer-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary drawer-link">Join Offline Batch</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              <span>JAUNPUR, UP · OFFLINE CLASSES &amp; ONLINE CONTENT</span>
+            </div>
+            <h1 class="hero-title">Learn software development the way it's <span>actually built.</span></h1>
+            <p class="hero-lead">Structured offline courses in Web Development and Mobile App Development taught in Jaunpur—paired with practical coding tutorials, walkthroughs, and guides shared regularly on YouTube and Facebook.</p>
+            <div class="hero-actions">
+              <a href="#courses" class="btn btn-primary">Explore Curriculum</a>
+              <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23.5 6.2a3.01 3.01 0 0 0-2.12-2.13C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.52A3.01 3.01 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3.01 3.01 0 0 0 2.12 2.13c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3.01 3.01 0 0 0 2.12-2.13A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.27 3.6-6.27 3.6Z"/>
+                </svg>
+                <span>Watch on YouTube</span>
+              </a>
+            </div>
+            <div class="hero-meta-strip">
+              <div class="hero-meta-item">
+                <strong>2 Tracks</strong>
+                <span>Web &amp; Mobile App Dev</span>
+              </div>
+              <div class="hero-meta-item">
+                <strong>7+ Years</strong>
+                <span>Flutter Dev Experience</span>
+              </div>
+              <div class="hero-meta-item">
+                <strong>Jaunpur</strong>
+                <span>In-Person Classroom</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="roadmap-card" aria-label="Active Course Tracks Overview">
+            <div class="roadmap-topbar">
+              <div class="window-controls" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="roadmap-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>Offline Classroom · Jaunpur · Small Batches</span>
+              </div>
+            </div>
+
+            <div class="roadmap-tabs" role="tablist" aria-label="Quick track preview">
+              <button type="button" class="roadmap-tab is-active" data-preview="web" role="tab" aria-selected="true">01 / web-dev.track</button>
+              <button type="button" class="roadmap-tab" data-preview="mobile" role="tab" aria-selected="false">02 / mobile-app.track</button>
+            </div>
+
+            <div class="roadmap-body">
+              <div class="roadmap-panel is-active" id="preview-web" role="tabpanel">
+                <div class="roadmap-header-row">
+                  <div>
+                    <h2 class="roadmap-track-title">Modern Web Development</h2>
+                    <p class="roadmap-track-sub">Front-end foundations, SQL/Supabase &amp; React</p>
+                  </div>
+                  <span class="roadmap-badge">8 Modules</span>
+                </div>
+                <div class="code-spec" aria-label="Web development track specifications">
+                  <div class="code-line"><span class="code-ln">1</span><span class="code-val">{</span></div>
+                  <div class="code-line"><span class="code-ln">2</span><span>&nbsp;&nbsp;<span class="code-key">"core"</span>: <span class="code-str">"HTML5, CSS3, Modern JS (ES6+)"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">3</span><span>&nbsp;&nbsp;<span class="code-key">"stack"</span>: <span class="code-str">"React.js + SQL + Supabase"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">4</span><span>&nbsp;&nbsp;<span class="code-key">"capstone"</span>: <span class="code-str">"Full-Stack E-Commerce Store"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">5</span><span>&nbsp;&nbsp;<span class="code-key">"deploy"</span>: <span class="code-str">"GitHub + Vercel / Netlify"</span></span></div>
+                  <div class="code-line"><span class="code-ln">6</span><span class="code-val">}</span></div>
+                </div>
+                <div class="roadmap-footer">
+                  <span class="roadmap-batch-info">Mode: Offline Classroom, Jaunpur</span>
+                  <button type="button" class="roadmap-jump" data-jump-course="web">Inspect 8-module syllabus &rarr;</button>
+                </div>
+              </div>
+
+              <div class="roadmap-panel" id="preview-mobile" role="tabpanel">
+                <div class="roadmap-header-row">
+                  <div>
+                    <h2 class="roadmap-track-title">Mobile App Development</h2>
+                    <p class="roadmap-track-sub">Java OOP, Databases, Dart &amp; Flutter</p>
+                  </div>
+                  <span class="roadmap-badge">6 Months</span>
+                </div>
+                <div class="code-spec" aria-label="Mobile app development track specifications">
+                  <div class="code-line"><span class="code-ln">1</span><span class="code-val">{</span></div>
+                  <div class="code-line"><span class="code-ln">2</span><span>&nbsp;&nbsp;<span class="code-key">"foundations"</span>: <span class="code-str">"DSA, Flowcharts, Java OOP"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">3</span><span>&nbsp;&nbsp;<span class="code-key">"crossPlatform"</span>: <span class="code-str">"Dart + Flutter"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">4</span><span>&nbsp;&nbsp;<span class="code-key">"builds"</span>: <span class="code-str">"6 Flutter Apps + 5 Java DB Apps"</span>,</span></div>
+                  <div class="code-line"><span class="code-ln">5</span><span>&nbsp;&nbsp;<span class="code-key">"finish"</span>: <span class="code-str">"Capstone Presentation &amp; Interviews"</span></span></div>
+                  <div class="code-line"><span class="code-ln">6</span><span class="code-val">}</span></div>
+                </div>
+                <div class="roadmap-footer">
+                  <span class="roadmap-batch-info">Mode: Offline Classroom, Jaunpur</span>
+                  <button type="button" class="roadmap-jump" data-jump-course="mobile">Inspect 6-month roadmap &rarr;</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-bordered" id="courses">
+      <div class="container">
+        <div class="curriculum-top">
+          <div>
+            <span class="section-label">Curriculum</span>
+            <h2 class="section-heading">Courses Taught Offline in Jaunpur</h2>
+            <p class="section-intro">Hands-on classroom training focused on writing clean code, shipping real projects, and understanding how modern web and mobile software works under the hood.</p>
+          </div>
+          <div class="course-tabs" role="tablist" aria-label="Select course syllabus">
+            <button type="button" class="course-tab-btn" id="tab-web" role="tab" aria-selected="true" aria-controls="panel-web" data-course="web">Modern Web Development</button>
+            <button type="button" class="course-tab-btn" id="tab-mobile" role="tab" aria-selected="false" aria-controls="panel-mobile" data-course="mobile">Mobile App Development</button>
+          </div>
+        </div>
+
+        <div class="curriculum-panel is-active" id="panel-web" role="tabpanel" aria-labelledby="tab-web">
+          <div class="curriculum-layout">
+            <aside class="track-summary-card">
+              <div class="track-summary-accent" aria-hidden="true"></div>
+              <span class="track-tag">8 MODULES · PROJECT-DRIVEN</span>
+              <h3>Modern Web Development</h3>
+              <p>Front-End Foundations, Databases, React &amp; Career Readiness. Designed to take beginners from core HTML and CSS to deploying a full-stack React storefront.</p>
+              <ul class="track-specs">
+                <li><span class="spec-k">Format</span><span class="spec-v">Offline · Jaunpur</span></li>
+                <li><span class="spec-k">Structure</span><span class="spec-v">8 Core Modules</span></li>
+                <li><span class="spec-k">Frontend</span><span class="spec-v">HTML5, CSS3, JS, React</span></li>
+                <li><span class="spec-k">Data &amp; BaaS</span><span class="spec-v">SQL + Supabase</span></li>
+                <li><span class="spec-k">Capstone</span><span class="spec-v">Live E-Commerce App</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" data-prefill-course="Web Development">Enquire for Web Batch</a>
+            </aside>
+
+            <div>
+              <div class="accordion-header-bar">
+                <span class="accordion-count">8 Modules · Click any module to inspect topics</span>
+                <button type="button" class="expand-all-btn" data-toggle-group="web">Expand all</button>
+              </div>
+              <div class="accordion-list" data-accordion-group="web">
+                <article class="accordion-item is-open">
+                  <button type="button" class="accordion-trigger" aria-expanded="true">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 01</span>
+                      <span class="module-name">The Foundations of the Web &amp; HTML5</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>How the Web Works:</strong> Clients, servers, browsers, and basic HTTP requests.</li>
+                        <li><strong>HTML Fundamentals:</strong> Boilerplate structure, essential tags, elements, and attributes.</li>
+                        <li><strong>Structuring Content:</strong> Headings, paragraphs, lists, anchors, and tables.</li>
+                        <li><strong>Media Integration:</strong> Embedding images, audio, and video effectively.</li>
+                        <li><strong>Forms &amp; Inputs:</strong> Gathering user data, input types, and form submission mechanics.</li>
+                        <li><strong>Semantic HTML:</strong> Writing accessible, SEO-friendly markup.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 02</span>
+                      <span class="module-name">Styling and Layouts with CSS3</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>CSS Basics:</strong> Selectors, properties, values, and how the cascade works.</li>
+                        <li><strong>The Box Model:</strong> Mastering margins, borders, padding, and content area.</li>
+                        <li><strong>Typography &amp; Aesthetics:</strong> Web fonts, color theory, and visual hierarchy.</li>
+                        <li><strong>Modern Layouts:</strong> Deep dive into Flexbox and CSS Grid.</li>
+                        <li><strong>Responsive Design:</strong> Media queries, mobile-first principles, and fluid units.</li>
+                        <li><strong>Interactive UI:</strong> Hover states, smooth transitions, and interface polish.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 03</span>
+                      <span class="module-name">Programming Logic &amp; JavaScript Core</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Intro to JavaScript:</strong> Variables, data types, and operators.</li>
+                        <li><strong>Control Flow:</strong> If/else statements, switch cases, and logic gates.</li>
+                        <li><strong>Loops &amp; Iteration:</strong> Automating repetitive tasks with for and while loops.</li>
+                        <li><strong>Functions:</strong> Declarations, arrow functions, and variable scope.</li>
+                        <li><strong>Data Structures:</strong> Manipulating Arrays and Objects with built-in methods.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 04</span>
+                      <span class="module-name">Advanced JavaScript &amp; The DOM</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>DOM Manipulation:</strong> Modifying HTML elements and styles dynamically.</li>
+                        <li><strong>Event Handling:</strong> Responding to user clicks, keyboard inputs, and form events.</li>
+                        <li><strong>Asynchronous JavaScript:</strong> Promises, Async/Await, and API fetching.</li>
+                        <li><strong>Modern ES6+:</strong> Destructuring, spread operators, and module imports.</li>
+                        <li><strong>Version Control:</strong> Using Git, GitHub, and essential terminal commands.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 05</span>
+                      <span class="module-name">Databases &amp; Data Management</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Database Fundamentals:</strong> Relational vs. Non-Relational data concepts.</li>
+                        <li><strong>SQL Basics:</strong> Structuring tables and writing SELECT, INSERT, UPDATE, DELETE queries.</li>
+                        <li><strong>Backend-as-a-Service (BaaS):</strong> Using Supabase to manage cloud databases cleanly.</li>
+                        <li><strong>API Integration:</strong> Connecting the frontend directly and securely to the cloud database.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 06</span>
+                      <span class="module-name">Introduction to React.js</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Why React?:</strong> The Virtual DOM and Component-Based Architecture.</li>
+                        <li><strong>Building Components:</strong> Writing reusable functional components with JSX syntax.</li>
+                        <li><strong>State &amp; Props:</strong> Managing local data and passing information to child components.</li>
+                        <li><strong>Essential Hooks:</strong> Using useState for component memory and useEffect for data fetching.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 07</span>
+                      <span class="module-name">Capstone Project — Full-Stack E-Commerce Storefront</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Storefront Architecture:</strong> Scalable online storefront with product listings and shopping cart.</li>
+                        <li><strong>Database Setup:</strong> Modeling product inventory and categories in Supabase/SQL.</li>
+                        <li><strong>React Frontend:</strong> Product cards, category filters, and dynamic cart state management.</li>
+                        <li><strong>Production Deployment:</strong> Publishing the live working application via Vercel or Netlify.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">MODULE 08</span>
+                      <span class="module-name">Career Readiness &amp; Professional Ethics</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Resume &amp; Portfolio:</strong> Presenting the live e-commerce capstone effectively.</li>
+                        <li><strong>Interview Prep:</strong> Explaining code logic and answering technical questions clearly.</li>
+                        <li><strong>Job Hunting:</strong> Finding junior developer roles, networking, and leveraging LinkedIn.</li>
+                        <li><strong>Workplace Ethics:</strong> Team communication, handling code feedback, and continuous learning.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="curriculum-panel" id="panel-mobile" role="tabpanel" aria-labelledby="tab-mobile">
+          <div class="curriculum-layout">
+            <aside class="track-summary-card">
+              <div class="track-summary-accent track-summary-accent-mobile" aria-hidden="true"></div>
+              <span class="track-tag">DURATION: 6 MONTHS · FLUTTER &amp; JAVA</span>
+              <h3>Mobile App Development</h3>
+              <p>A complete 6-month offline track starting from computer basics and Java OOP, progressing through databases to cross-platform Flutter app development.</p>
+              <ul class="track-specs">
+                <li><span class="spec-k">Duration</span><span class="spec-v">6 Months</span></li>
+                <li><span class="spec-k">Format</span><span class="spec-v">Offline · Jaunpur</span></li>
+                <li><span class="spec-k">Core Languages</span><span class="spec-v">Java, Dart, SQL</span></li>
+                <li><span class="spec-k">Framework</span><span class="spec-v">Flutter (Cross-Platform)</span></li>
+                <li><span class="spec-k">Assessments</span><span class="spec-v">2 Exams + Capstone</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" data-prefill-course="Mobile App Development">Enquire for Mobile Batch</a>
+            </aside>
+
+            <div>
+              <div class="accordion-header-bar">
+                <span class="accordion-count">6 Phases · Click any phase to inspect topics</span>
+                <button type="button" class="expand-all-btn" data-toggle-group="mobile">Expand all</button>
+              </div>
+              <div class="accordion-list" data-accordion-group="mobile">
+                <article class="accordion-item is-open">
+                  <button type="button" class="accordion-trigger" aria-expanded="true">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 01</span>
+                      <span class="module-name">Foundations &amp; Logic</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Basics of Computer:</strong> Computer components and underlying system structure.</li>
+                        <li><strong>DSA &amp; Flowcharts:</strong> Introduction to data structures, algorithms, and flowchart logic.</li>
+                        <li><strong>MIT App Inventor:</strong> Understanding mobile architecture via drag-and-drop components.</li>
+                        <li><strong>Starter Builds:</strong> Creating 5 foundational mobile apps to internalize app flows.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 02</span>
+                      <span class="module-name">Programming &amp; Java OOP</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Programming Core:</strong> Types of programming, program lifecycle, and implementing DSA.</li>
+                        <li><strong>Java &amp; VS Code IDE:</strong> Variables, data types, arrays, functions, and workflow setup.</li>
+                        <li><strong>Object-Oriented Programming:</strong> Classes, members, and mastering the 4 pillars of OOP.</li>
+                        <li><strong>Practical Java Apps:</strong> Building multiple applications using core Java and OOP.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 03</span>
+                      <span class="module-name">Databases &amp; Mindset</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Database Essentials:</strong> Why databases matter, plus SQL and NoSQL fundamentals.</li>
+                        <li><strong>Database-Backed Builds:</strong> Integrating databases to build 5 Java applications.</li>
+                        <li><strong>Critical Thinking &amp; Personality:</strong> Broadening perspective, big-picture thinking, and communication.</li>
+                        <li><strong>Examination 1:</strong> Milestone assessment covering Java, Databases, and CT &amp; PD.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 04</span>
+                      <span class="module-name">Dart &amp; Flutter Mastery</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Dart Language:</strong> Core Dart syntax, type system, and features built for Flutter.</li>
+                        <li><strong>Flutter Environment:</strong> Setting up the SDK and working inside a full IDE setup.</li>
+                        <li><strong>Flutter Fundamentals:</strong> Widgets, layouts, navigation, and state management concepts.</li>
+                        <li><strong>Cross-Platform Architecture:</strong> Designing apps cleanly across mobile platforms.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 05</span>
+                      <span class="module-name">Real-World Builds &amp; Capstone</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>6 Mobile App Projects:</strong> Building 6 real-world Flutter apps plus guided bonus projects.</li>
+                        <li><strong>Application Case Studies:</strong> Planning architecture and documenting product decisions.</li>
+                        <li><strong>Examination 2:</strong> Practical evaluation on Flutter and Dart engineering.</li>
+                        <li><strong>Capstone &amp; Presentation:</strong> Complete Flutter application built and presented live to the class.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="accordion-item">
+                  <button type="button" class="accordion-trigger" aria-expanded="false">
+                    <span class="accordion-title-group">
+                      <span class="module-index">PHASE 06</span>
+                      <span class="module-name">Job Placement Preparation</span>
+                    </span>
+                    <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="accordion-content-wrap">
+                    <div class="accordion-content">
+                      <ul class="topic-list">
+                        <li><strong>Portfolio Building:</strong> Organizing code repositories, screenshots, and case studies.</li>
+                        <li><strong>Work Ethics &amp; Collaboration:</strong> Team habits, code reviews, and professional dress code.</li>
+                        <li><strong>Job Hunting &amp; Interviews:</strong> Practical preparation for technical interviews and hiring rounds.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="content">
+      <div class="container">
+        <div class="content-header-grid">
+          <div>
+            <span class="section-label">Learn Online</span>
+            <h2 class="section-heading">Free Coding Content &amp; Developer Community</h2>
+            <p class="section-intro">Not in Jaunpur yet, or want to keep learning outside classroom hours? Follow Beyond Code Academy online for clear breakdowns on Flutter, web development, and software engineering fundamentals.</p>
+          </div>
+          <div class="social-row" aria-label="Additional social profiles">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.02 11.02 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96ZM3 9h4v12H3V9Zm7 0h3.84v1.64h.05c.54-1.02 1.85-2.1 3.81-2.1 4.07 0 4.82 2.68 4.82 6.16V21h-4v-5.56c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95V21h-4V9Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="platforms-grid">
+          <article class="platform-card">
+            <div>
+              <div class="platform-top">
+                <div class="platform-icon-box" style="color: #F87171;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.01 3.01 0 0 0-2.12-2.13C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.52A3.01 3.01 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3.01 3.01 0 0 0 2.12 2.13c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3.01 3.01 0 0 0 2.12-2.13A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.27 3.6-6.27 3.6Z"/></svg>
+                </div>
+                <span class="platform-handle">@beyondcodeacademy</span>
+              </div>
+              <h3 style="margin-top: 1.15rem;">YouTube Channel</h3>
+              <p>Step-by-step coding tutorials, Flutter deep dives, full project builds, and practical web development walkthroughs recorded in plain Hindi and English.</p>
+              <ul class="platform-points">
+                <li>Flutter Deep Dives</li>
+                <li>Web Dev Walkthroughs</li>
+                <li>Beginner Roadmaps</li>
+              </ul>
+            </div>
+            <div>
+              <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Subscribe on YouTube &rarr;</a>
+            </div>
+          </article>
+
+          <article class="platform-card">
+            <div>
+              <div class="platform-top">
+                <div class="platform-icon-box" style="color: #38BDF8;">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg>
+                </div>
+                <span class="platform-handle">fb.com/beyondcodeacademy</span>
+              </div>
+              <h3 style="margin-top: 1.15rem;">Facebook Page &amp; Community</h3>
+              <p>Daily programming tips, short video explainers, upcoming Jaunpur offline batch announcements, student project highlights, and direct Q&amp;A threads.</p>
+              <ul class="platform-points">
+                <li>Daily Coding Tips</li>
+                <li>Jaunpur Batch Updates</li>
+                <li>Community Q&amp;A</li>
+              </ul>
+            </div>
+            <div>
+              <a href="https://facebook.com/beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-dark">Follow on Facebook &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="guides-subheader">
+          <h3>Latest Videos &amp; Guides</h3>
+          <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="guides-all-link">Browse channel &rarr;</a>
+        </div>
+
+        <div class="guides-grid">
+          <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="guide-card">
+            <div class="guide-thumb">
+              <div class="guide-thumb-grid" aria-hidden="true"></div>
+              <div class="guide-thumb-top">
+                <span class="guide-format-tag">FLUTTER · DEEP DIVE</span>
+                <span class="guide-play-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                </span>
+              </div>
+              <div class="guide-thumb-code"><strong>class</strong> AppState <strong>extends</strong> ChangeNotifier { ... }</div>
+            </div>
+            <div class="guide-body">
+              <span class="guide-meta">Mobile Engineering</span>
+              <h4>Flutter State Management &amp; Clean Architecture</h4>
+              <p>How to structure screens, separate business logic from UI widgets, and keep medium-to-large Flutter codebases maintainable.</p>
+            </div>
+          </a>
+
+          <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="guide-card">
+            <div class="guide-thumb">
+              <div class="guide-thumb-grid" aria-hidden="true"></div>
+              <div class="guide-thumb-top">
+                <span class="guide-format-tag">REACT · SUPABASE</span>
+                <span class="guide-play-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                </span>
+              </div>
+              <div class="guide-thumb-code"><strong>const</strong> { data } = <strong>await</strong> supabase.from('products').select('*')</div>
+            </div>
+            <div class="guide-body">
+              <span class="guide-meta">Web Development</span>
+              <h4>Building Your First React + Supabase App</h4>
+              <p>Setting up relational tables in SQL, querying data with useEffect, and deploying a working frontend without heavy backend boilerplate.</p>
+            </div>
+          </a>
+
+          <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer" class="guide-card">
+            <div class="guide-thumb">
+              <div class="guide-thumb-grid" aria-hidden="true"></div>
+              <div class="guide-thumb-top">
+                <span class="guide-format-tag">ROADMAP · BEGINNERS</span>
+                <span class="guide-play-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                </span>
+              </div>
+              <div class="guide-thumb-code"><strong>step_01</strong>: logic -&gt; projects -&gt; portfolio</div>
+            </div>
+            <div class="guide-body">
+              <span class="guide-meta">Career &amp; Foundations</span>
+              <h4>How to Start Coding from Zero in Jaunpur</h4>
+              <p>A grounded breakdown of choosing between web and mobile development, avoiding tutorial loops, and building projects that actually prove skill.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-bordered" id="instructor">
+      <div class="container">
+        <div class="instructor-grid">
+          <div class="portrait-card">
+            <div class="portrait-frame">
+              <div class="portrait-frame-grid" aria-hidden="true"></div>
+              <div class="portrait-monogram" aria-hidden="true">A<span>S</span></div>
+              <div class="portrait-caption">ARBAAZ SHAH · JAUNPUR</div>
+            </div>
+            <div class="portrait-meta">
+              <div>
+                <strong>Arbaaz Shah</strong>
+                <span>Founder &amp; Instructor</span>
+              </div>
+              <span class="exp-pill">7+ Yrs Flutter</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="section-label">Meet Your Instructor</span>
+            <h2 class="section-heading">Taught directly by Arbaaz Shah.</h2>
+            <p class="instructor-bio">
+              Based in <strong>Jaunpur, India</strong>, Arbaaz brings <strong>7+ years of experience as a Flutter developer</strong> building cross-platform mobile and web applications. Through Beyond Code Academy, he teaches practical software development offline in Jaunpur and shares straightforward programming tutorials online—focusing on clean fundamentals, real project architecture, and writing code you genuinely understand.
+            </p>
+
+            <div class="stack-block">
+              <span class="mono-subheading">Core Technical Stack</span>
+              <div class="stack-tags">
+                <span class="stack-tag">Flutter</span>
+                <span class="stack-tag">Dart</span>
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">JavaScript</span>
+                <span class="stack-tag">HTML &amp; CSS</span>
+                <span class="stack-tag">Java</span>
+                <span class="stack-tag">SQL &amp; NoSQL</span>
+                <span class="stack-tag">Node.js</span>
+                <span class="stack-tag">Git</span>
+              </div>
+            </div>
+
+            <div class="languages-bar">
+              <span class="lang-label">Teaching Languages</span>
+              <div class="languages-list">
+                <span class="lang-chip">Hindi</span>
+                <span class="lang-chip">English</span>
+                <span class="lang-chip">Urdu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <span class="section-label">Contact &amp; Enrollment</span>
+            <h2 class="section-heading">Join the next offline batch in Jaunpur.</h2>
+            <p class="section-intro">Have questions about batch timings, syllabus details, or which track fits your current level? Reach out directly on WhatsApp, call, or send an email.</p>
+
+            <div class="contact-details-card">
+              <div class="contact-row">
+                <div>
+                  <div class="contact-row-label">Phone / WhatsApp</div>
+                  <div class="contact-row-value"><a href="tel:+918218262756">+91 82182 62756</a></div>
+                </div>
+                <div class="contact-row-actions">
+                  <a href="https://wa.me/918218262756" target="_blank" rel="noopener noreferrer" class="mini-action-btn">WhatsApp</a>
+                  <button type="button" class="mini-action-btn" data-copy="+918218262756">Copy</button>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div>
+                  <div class="contact-row-label">Email</div>
+                  <div class="contact-row-value"><a href="mailto:arbaazaj1@gmail.com">arbaazaj1@gmail.com</a></div>
+                </div>
+                <div class="contact-row-actions">
+                  <button type="button" class="mini-action-btn" data-copy="arbaazaj1@gmail.com">Copy</button>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div>
+                  <div class="contact-row-label">Location</div>
+                  <div class="contact-row-value">Jaunpur, Uttar Pradesh, India</div>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div>
+                  <div class="contact-row-label">Website</div>
+                  <div class="contact-row-value"><a href="https://beyondcodeacademy.in">beyondcodeacademy.in</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-card-header">
+              <h3>Send a Batch Inquiry</h3>
+              <p>Fill out the details below to open a pre-filled WhatsApp message or email directly to Arbaaz.</p>
+            </div>
+
+            <form id="inquiryForm" novalidate>
+              <div class="form-grid">
+                <div class="form-grid-2">
+                  <div class="field" id="fieldName">
+                    <label for="studentName">Full Name</label>
+                    <input type="text" id="studentName" name="name" placeholder="Your name" autocomplete="name" required>
+                    <span class="field-error">Please enter your name.</span>
+                  </div>
+
+                  <div class="field" id="fieldPhone">
+                    <label for="studentPhone">Phone / WhatsApp</label>
+                    <input type="tel" id="studentPhone" name="phone" placeholder="+91 98XXX XXXXX" autocomplete="tel" required>
+                    <span class="field-error">Please enter a valid phone number.</span>
+                  </div>
+                </div>
+
+                <div class="field" id="fieldCourse">
+                  <label for="courseInterest">Course Interest</label>
+                  <select id="courseInterest" name="course">
+                    <option value="Web Development">Web Development (8 Modules)</option>
+                    <option value="Mobile App Development">Mobile App Development (6 Months)</option>
+                    <option value="Both">Both Web &amp; Mobile App Development</option>
+                    <option value="General Inquiry">General Inquiry / Online Content</option>
+                  </select>
+                </div>
+
+                <div class="field" id="fieldMessage">
+                  <label for="studentMessage">Message (Optional)</label>
+                  <textarea id="studentMessage" name="message" placeholder="Share your background, preferred batch timing, or any questions..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="submitWhatsapp">Send via WhatsApp &rarr;</button>
+                  <button type="button" class="btn btn-secondary" id="submitEmail">Send via Email</button>
+                </div>
+              </div>
+
+              <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#top" class="brand-lockup brand-lockup-dark">
+            <svg class="brand-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="bcaHexFillFooter" x1="6" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#0A1B36"/>
+                  <stop offset="55%" stop-color="#1E295E"/>
+                  <stop offset="100%" stop-color="#5B2172"/>
+                </linearGradient>
+              </defs>
+              <polygon points="32,3 57,17.5 57,46.5 32,61 7,46.5 7,17.5" fill="url(#bcaHexFillFooter)" stroke="#F2BE42" stroke-width="2.6" stroke-linejoin="round"/>
+              <polygon points="32,12 49,22 49,42 32,52 15,42 15,22" fill="none" stroke="#0EA5E9" stroke-width="1.6" stroke-opacity="0.9" stroke-linejoin="round"/>
+              <path d="M35.5 20.5C29.5 23.8 25.5 29.8 24.5 37C29.8 34.4 34.8 29.4 37.5 22.8L35.5 20.5Z" fill="#38BDF8"/>
+              <path d="M24.2 37.5C23.5 33.4 25.4 29.6 29.4 28.4C31.5 27.8 33.4 28.5 34.3 30.1C30.4 31.1 27.4 34.2 26.2 38.4L24.2 37.5Z" fill="#F2BE42"/>
+              <circle cx="33.5" cy="36.2" r="2.7" fill="#F2BE42"/>
+              <path d="M29.2 40.5C31.2 43.2 35.8 43.5 39.2 40.2" stroke="#0EA5E9" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <span class="brand-wordmark">
+              <span class="beyond">Beyond Code</span>
+              <span class="academy">Academy</span>
+            </span>
+          </a>
+          <p class="footer-brand-note">Practical software development classes in Jaunpur and online programming education by Arbaaz Shah.</p>
+        </div>
+
+        <ul class="footer-nav" aria-label="Footer navigation">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#content">Online Content</a></li>
+          <li><a href="#instructor">Instructor</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="yearNow">2026</span> Beyond Code Academy &middot; Jaunpur, Uttar Pradesh &middot; beyondcodeacademy.in</div>
+        <div class="footer-socials">
+          <a href="https://youtube.com/@beyondcodeacademy" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://facebook.com/beyondcodeacademy" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var yearEl = document.getElementById('yearNow');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileDrawer = document.getElementById('mobileDrawer');
+      var drawerLinks = document.querySelectorAll('.drawer-link');
+
+      function setDrawerState(open) {
+        if (!menuToggle || !mobileDrawer) return;
+        mobileDrawer.classList.toggle('is-open', open);
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      if (menuToggle && mobileDrawer) {
+        menuToggle.addEventListener('click', function () {
+          var isOpen = mobileDrawer.classList.contains('is-open');
+          setDrawerState(!isOpen);
+        });
+
+        drawerLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            setDrawerState(false);
+          });
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+            setDrawerState(false);
+            menuToggle.focus();
+          }
+        });
+      }
+
+      var previewTabs = document.querySelectorAll('.roadmap-tab');
+      var previewPanels = {
+        web: document.getElementById('preview-web'),
+        mobile: document.getElementById('preview-mobile')
+      };
+
+      previewTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.getAttribute('data-preview');
+          previewTabs.forEach(function (t) {
+            var active = t === tab;
+            t.classList.toggle('is-active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          Object.keys(previewPanels).forEach(function (key) {
+            if (previewPanels[key]) {
+              previewPanels[key].classList.toggle('is-active', key === target);
+            }
+          });
+        });
+      });
+
+      var courseTabs = document.querySelectorAll('.course-tab-btn');
+      var coursePanels = {
+        web: document.getElementById('panel-web'),
+        mobile: document.getElementById('panel-mobile')
+      };
+
+      function activateCourseTab(courseKey) {
+        courseTabs.forEach(function (btn) {
+          var isMatch = btn.getAttribute('data-course') === courseKey;
+          btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        });
+        Object.keys(coursePanels).forEach(function (key) {
+          if (coursePanels[key]) {
+            coursePanels[key].classList.toggle('is-active', key === courseKey);
+          }
+        });
+      }
+
+      courseTabs.forEach(function (btn, idx) {
+        btn.addEventListener('click', function () {
+          activateCourseTab(btn.getAttribute('data-course'));
+        });
+
+        btn.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            var nextIdx = (idx + 1) % courseTabs.length;
+            courseTabs[nextIdx].focus();
+            activateCourseTab(courseTabs[nextIdx].getAttribute('data-course'));
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-jump-course]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var courseKey = btn.getAttribute('data-jump-course');
+          activateCourseTab(courseKey);
+          var coursesSection = document.getElementById('courses');
+          if (coursesSection) {
+            coursesSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      function syncExpandButton(groupName) {
+        var groupEl = document.querySelector('[data-accordion-group="' + groupName + '"]');
+        var toggleBtn = document.querySelector('[data-toggle-group="' + groupName + '"]');
+        if (!groupEl || !toggleBtn) return;
+        var items = groupEl.querySelectorAll('.accordion-item');
+        var allOpen = true;
+        items.forEach(function (item) {
+          if (!item.classList.contains('is-open')) {
+            allOpen = false;
+          }
+        });
+        toggleBtn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+      }
+
+      document.querySelectorAll('.accordion-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var item = trigger.closest('.accordion-item');
+          var group = trigger.closest('[data-accordion-group]');
+          if (!item) return;
+          var willOpen = !item.classList.contains('is-open');
+          item.classList.toggle('is-open', willOpen);
+          trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          if (group) {
+            syncExpandButton(group.getAttribute('data-accordion-group'));
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-toggle-group]').forEach(function (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          var groupName = toggleBtn.getAttribute('data-toggle-group');
+          var groupEl = document.querySelector('[data-accordion-group="' + groupName + '"]');
+          if (!groupEl) return;
+          var items = groupEl.querySelectorAll('.accordion-item');
+          var shouldExpand = toggleBtn.textContent.trim().toLowerCase() === 'expand all';
+          items.forEach(function (item) {
+            item.classList.toggle('is-open', shouldExpand);
+            var trigger = item.querySelector('.accordion-trigger');
+            if (trigger) {
+              trigger.setAttribute('aria-expanded', shouldExpand ? 'true' : 'false');
+            }
+          });
+          syncExpandButton(groupName);
+        });
+      });
+
+      var courseSelect = document.getElementById('courseInterest');
+      document.querySelectorAll('[data-prefill-course]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          var courseValue = link.getAttribute('data-prefill-course');
+          if (courseSelect && courseValue) {
+            courseSelect.value = courseValue;
+          }
+        });
+      });
+
+      function copyTextValue(text, buttonEl) {
+        var originalLabel = buttonEl.textContent;
+        var markCopied = function () {
+          buttonEl.textContent = 'Copied';
+          setTimeout(function () {
+            buttonEl.textContent = originalLabel;
+          }, 1600);
+        };
+        try {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          tempInput.setAttribute('readonly', '');
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          markCopied();
+        } catch (err) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(markCopied).catch(function () {});
+          }
+        }
+      }
+
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          copyTextValue(btn.getAttribute('data-copy'), btn);
+        });
+      });
+
+      var inquiryForm = document.getElementById('inquiryForm');
+      var nameInput = document.getElementById('studentName');
+      var phoneInput = document.getElementById('studentPhone');
+      var messageInput = document.getElementById('studentMessage');
+      var emailBtn = document.getElementById('submitEmail');
+      var feedbackBox = document.getElementById('formFeedback');
+      var fieldName = document.getElementById('fieldName');
+      var fieldPhone = document.getElementById('fieldPhone');
+
+      function validateForm() {
+        var valid = true;
+        var nameVal = nameInput.value.trim();
+        var phoneVal = phoneInput.value.trim();
+
+        if (nameVal.length < 2) {
+          fieldName.classList.add('has-error');
+          valid = false;
+        } else {
+          fieldName.classList.remove('has-error');
+        }
+
+        if (phoneVal.replace(/\D/g, '').length < 10) {
+          fieldPhone.classList.add('has-error');
+          valid = false;
+        } else {
+          fieldPhone.classList.remove('has-error');
+        }
+
+        return valid;
+      }
+
+      function buildMessagePayload() {
+        var nameVal = nameInput.value.trim();
+        var phoneVal = phoneInput.value.trim();
+        var courseVal = courseSelect.value;
+        var msgVal = messageInput.value.trim();
+
+        var lines = [
+          'Hello Arbaaz, I am interested in Beyond Code Academy.',
+          'Name: ' + nameVal,
+          'Phone/WhatsApp: ' + phoneVal,
+          'Course Interest: ' + courseVal
+        ];
+        if (msgVal) {
+          lines.push('Message: ' + msgVal);
+        }
+        return {
+          course: courseVal,
+          body: lines.join('\n')
+        };
+      }
+
+      function showConfirmation(channelLabel, directUrl) {
+        if (!feedbackBox) return;
+        feedbackBox.innerHTML = 'Your inquiry is ready in <strong>' + channelLabel + '</strong>. If it did not open automatically, <a href="' + directUrl + '" target="_blank" rel="noopener noreferrer">click here to continue</a>.';
+        feedbackBox.classList.add('is-visible');
+      }
+
+      if (nameInput) {
+        nameInput.addEventListener('input', function () {
+          fieldName.classList.remove('has-error');
+        });
+      }
+
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+          fieldPhone.classList.remove('has-error');
+        });
+      }
+
+      if (inquiryForm) {
+        inquiryForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (!validateForm()) return;
+          var payload = buildMessagePayload();
+          var waUrl = 'https://wa.me/918218262756?text=' + encodeURIComponent(payload.body);
+          showConfirmation('WhatsApp', waUrl);
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      if (emailBtn) {
+        emailBtn.addEventListener('click', function () {
+          if (!validateForm()) return;
+          var payload = buildMessagePayload();
+          var subject = 'Beyond Code Academy Inquiry - ' + payload.course;
+          var mailUrl = 'mailto:arbaazaj1@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(payload.body);
+          showConfirmation('your Email app', mailUrl);
+          window.location.href = mailUrl;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
